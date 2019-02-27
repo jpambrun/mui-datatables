@@ -173,8 +173,8 @@ class MUIDataTable extends React.Component {
 
   initializeState() {
     const defaultState = {
-      page: (this.options.page || 0), // Fallback support
-      rowsPerPage: (this.options.rowsPerPage || 10), // Fallback support
+      page: this.options.page || 0, // Fallback support
+      rowsPerPage: this.options.rowsPerPage || 10, // Fallback support
       searchText: null,
       sort: {
         column: null,
@@ -261,7 +261,7 @@ class MUIDataTable extends React.Component {
     }
     if (this.props.options.rowsPerPage || this.props.options.rowsPerPage === 0) {
       console.warn(
-          'Deprecated: rowsPerPage is now under the initialState prop. See https://github.com/gregnb/mui-datatables/tree/master/examples/initial-state-values example',
+        'Deprecated: rowsPerPage is now under the initialState prop. See https://github.com/gregnb/mui-datatables/tree/master/examples/initial-state-values example',
       );
     }
     if (this.props.options.page || this.props.options.page === 0) {
