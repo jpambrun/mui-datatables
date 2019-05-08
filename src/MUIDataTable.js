@@ -503,30 +503,9 @@ class MUIDataTable extends React.Component {
       }
 
       displayRow.push(columnDisplay);
-
-      const columnVal = columnValue === null ? '' : columnValue.toString();
-
-      const filterVal = filterList[index];
-      const { filterType, caseSensitive } = this.options;
-      if (filterVal.length) {
-        if (filterType === 'textField' && !this.hasSearchText(columnVal, filterVal, caseSensitive)) {
-          isFiltered = true;
-        } else if (filterType !== 'textField' && filterVal.indexOf(columnValue) < 0) {
-          isFiltered = true;
-        }
-      }
-
-      if (
-        searchText &&
-        this.hasSearchText(columnVal, searchText, caseSensitive) &&
-        columns[index].display !== 'false'
-      ) {
-        isSearchFound = true;
-      }
     }
 
-    if (isFiltered || (!this.options.serverSide && searchText && !isSearchFound)) return null;
-    else return displayRow;
+    return displayRow;
   }
 
   hasSearchText = (toSearch, toFind, caseSensitive) => {
